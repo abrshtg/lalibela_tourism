@@ -1,0 +1,18 @@
+<!-- lalibela_tourism/tourism/templates/tourism/attraction_confirm_delete.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Attraction</title>
+</head>
+<body>
+    <h1>Confirm Deletion</h1>
+    <p>Are you sure you want to delete "{{ attraction.name }}"?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Confirm</button>
+    </form>
+    <a href="{% url 'attraction_list' %}">Cancel</a>
+</body>
+</html>

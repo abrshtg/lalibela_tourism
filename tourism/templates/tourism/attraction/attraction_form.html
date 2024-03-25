@@ -1,0 +1,17 @@
+<!-- lalibela_tourism/tourism/templates/tourism/attraction_form.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% if form.instance.pk %}Update{% else %}Add{% endif %} Attraction</title>
+</head>
+<body>
+    <h1>{% if form.instance.pk %}Update{% else %}Add{% endif %} Attraction</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">{% if form.instance.pk %}Update{% else %}Add{% endif %}</button>
+    </form>
+</body>
+</html>
