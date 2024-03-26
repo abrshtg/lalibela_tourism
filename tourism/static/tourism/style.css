@@ -1,0 +1,18 @@
+.carousel .carousel-item {
+    height: 500px;
+    /* width: 500px; */
+}
+
+
+.carousel-item img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-height: 400px;
+}
+
+.my-font {
+    font-family: 'monospace', sans-serif;
+    font-size: smaller;
+
+}

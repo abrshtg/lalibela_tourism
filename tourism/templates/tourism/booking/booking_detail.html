@@ -1,0 +1,19 @@
+<!-- lalibela_tourism/tourism/templates/tourism/booking_detail.html -->
+
+{% extends '../base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1>Booking Detail</h1>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Booking ID: {{ booking.id }}</h5>
+            <p class="card-text">Tourist: {{ booking.tourist }}</p>
+            <p class="card-text">Tour Package: {{ booking.tour_package }}</p>
+            <p class="card-text">Booking Date: {{ booking.date_booked }}</p>
+            <p class="card-text">Number of Travelers: {{ booking.num_people }}</p>
+            <a href="{% url 'booking_list' %}" class="btn btn-primary">Back to Bookings List</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

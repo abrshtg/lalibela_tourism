@@ -1,0 +1,14 @@
+<!-- lalibela_tourism/tourism/templates/tourism/tourist_list.html -->
+
+{% extends '../base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1>Tourists</h1>
+    <ul class="list-group">
+        {% for tourist in tourists %}
+            <li class="list-group-item"><a href="{% url 'tourist_detail' tourist.id %}">{{ tourist.name }}</a></li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

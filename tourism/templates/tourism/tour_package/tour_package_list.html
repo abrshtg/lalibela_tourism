@@ -1,0 +1,14 @@
+<!-- lalibela_tourism/tourism/templates/tourism/tour_package_list.html -->
+
+{% extends '../base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1>Tour Packages</h1>
+    <ul class="list-group">
+        {% for tour_package in tour_packages %}
+            <li class="list-group-item"><a href="{% url 'tour_package_detail' tour_package.id %}">{{ tour_package.name }}</a></li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

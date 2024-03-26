@@ -1,0 +1,14 @@
+<!-- lalibela_tourism/tourism/templates/tourism/booking_list.html -->
+
+{% extends '../base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1>Bookings</h1>
+    <ul class="list-group">
+        {% for booking in bookings %}
+            <li class="list-group-item"><a href="{% url 'booking_detail' booking.id %}">Booking ID: {{ booking.id }}</a></li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

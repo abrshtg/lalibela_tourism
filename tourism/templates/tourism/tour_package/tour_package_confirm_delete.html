@@ -1,0 +1,15 @@
+<!-- lalibela_tourism/tourism/templates/tourism/tour_package_confirm_delete.html -->
+
+{% extends '../base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1>Confirm Deletion</h1>
+    <p>Are you sure you want to delete "{{ tour_package.name }}"?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Confirm</button>
+        <a href="{% url 'tour_package_list' %}" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,17 @@
+<!-- lalibela_tourism/tourism/templates/tourism/attraction_detail.html -->
+
+{% extends '../base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1>{{ attraction.name }} Details</h1>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">{{ attraction.name }}</h5>
+            <p class="card-text">Description: {{ attraction.description }}</p>
+            <p class="card-text">Location: {{ attraction.location }}</p>
+            <a href="{% url 'attraction_list' %}" class="btn btn-primary">Back to Attractions List</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

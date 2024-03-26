@@ -1,17 +1,14 @@
 <!-- lalibela_tourism/tourism/templates/tourism/attraction_list.html -->
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Attractions List</title>
-</head>
-<body>
+{% extends '../base.html' %}
+
+{% block content %}
+<div class="container">
     <h1>Attractions</h1>
-    <ul>
+    <ul class="list-group">
         {% for attraction in attractions %}
-            <li><a href="{% url 'attraction_detail' attraction.id %}">{{ attraction.name }}</a></li>
+            <li class="list-group-item"><a href="{% url 'attraction_detail' attraction.id %}">{{ attraction.name }}</a></li>
         {% endfor %}
     </ul>
-</body>
-</html>
+</div>
+{% endblock %}
