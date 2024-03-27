@@ -25,7 +25,8 @@ def attraction_detail(request, attraction_id):
 
 def attraction_create(request):
     if request.method == "POST":
-        form = AttractionForm(request.POST)
+        form = AttractionForm(request.POST, request.FILES)
+
         if form.is_valid():
             form.save()
             return redirect("attraction_list")
@@ -176,6 +177,10 @@ def booking_create(request):
             return redirect("booking_list")
     else:
         form = BookingForm()
+        tourist = Tourist.objects.all()
+        tour_package = TourPackage.objects.all()
+        context = {"form": form, "tourist": tourist, "tour_package": tour_package}
+        return render(request, "tourism/booking/booking_form.html", {"context": context})
     return render(request, "tourism/booking/booking_form.html", {"form": form})
 
 
@@ -199,3 +204,7 @@ def booking_delete(request, booking_id):
     return render(
         request, "tourism/booking/booking_confirm_delete.html", {"booking": booking}
     )
+
+
+def about(request):
+    return render(request, "tourism/about.html")

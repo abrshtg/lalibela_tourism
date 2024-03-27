@@ -27,7 +27,7 @@ class Attraction(models.Model):
     location = models.CharField(max_length=255)
     image = models.ImageField(
         upload_to="images/",
-        default="tourism/static/tourism/1.jpeg",
+        default="images/1.jpeg",
         null=True,
         blank=True,
     )

@@ -55,4 +55,5 @@ urlpatterns = [
     path(
         "bookings/<int:booking_id>/delete/", views.booking_delete, name="booking_delete"
     ),
+    path("about-us/", views.about, name="about"),
 ]

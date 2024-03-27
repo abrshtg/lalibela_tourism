@@ -2,12 +2,45 @@
 
 {% extends '../base.html' %}
 
+
 {% block content %}
-<div class="container">
-    <h1>{% if form.instance.pk %}Update{% else %}Add{% endif %} Booking</h1>
-    <form method="post">
+
+<div class="w-50 m-auto py-5">
+    <form method="post" enctype="multipart/form-data" novalidate>
+        <h1>{% if form.instance.pk %}Update{% else %}Add{% endif %} Booking</h1>
         {% csrf_token %}
-        {{ form.as_p }}
+
+        <div class="mb-3">
+            <label for="id_tourist" class="form-label">Turist</label>
+            <select class="form-select" aria-label="Default select example" name="tourist" required="" aria-invalid="true" id="id_tourist">
+                <option selected>----------</option>
+                {% for cxt in context.tourist.all %}
+                <option value="{{cxt.pk}}">{{ cxt.name }}</option>
+                {% endfor %}
+
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="id_tour_package">Tour package</label>
+            <select class="form-select" aria-label="Default select example" name="tour_package" required="" aria-invalid="true" id="id_tour_package">
+                <option selected>----------</option>
+                {% for cxt in context.tour_package.all %}
+                <option value="{{cxt.pk}}">{{cxt.name}}</option>
+                
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="id_date_booked">Date booked</label>
+        <input class="form-control" type="datetime-local" name="date_booked" required="" id="id_date_booked">
+        </div>
+
+        <div class="mb-3">
+            <label for="id_num_people">Num people</label>
+        <input class="form-control" type="number" name="num_people" required="" id="id_num_people">
+        </div>
         <button type="submit" class="btn btn-primary">{% if form.instance.pk %}Update{% else %}Add{% endif %}</button>
     </form>
 </div>
